@@ -16,8 +16,8 @@ void printTable(void);
 
 int main(int argc, char* argv[]) {
 
-  question1b();
-  //question2();
+  //question1b();
+  question2();
   return 0;
 }
 
@@ -425,13 +425,13 @@ int swap(int *a, int *b) {
   *b = temp;
 }
 int *convertNum(char *a){
-  char chars[27] = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+  char chars[28] = {"-BCDEFGHIJKLMNOPQRSTUVWXYZ A"};
   int size = 0;
   while (a[size] != '\0') size++;
   int *sendMsg = malloc(size*sizeof(int) - 1);
 
   for (int i=0; i < size; i++) {
-    for (int j = 0; j < 27; j++) {
+    for (int j = 0; j < 28; j++) {
       if (a[i] == chars[j]) {
         sendMsg[i] = j;
       }
@@ -441,7 +441,7 @@ int *convertNum(char *a){
 }
 
 char *convertChar(int *a, int size) {
-  char chars[27] = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+  char chars[28] = {"-BCDEFGHIJKLMNOPQRSTUVWXYZ A"};
   char * recvMsg = malloc(size*sizeof(int) -1);
   for (int i = 0; i < size; i++) {
     recvMsg[i] = chars[a[i]];
@@ -455,16 +455,16 @@ int EulerTotientFunction(int p, int q) {
 
 void printTable(void)
 {
-  char chars[27] = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+  char chars[28] = {"-BCDEFGHIJKLMNOPQRSTUVWXYZ A"};
   printf("\n");
   printf("-----------------------------------\n");
   printf("|Character|Number|Character|Number|\n");
   printf("-----------------------------------\n");
-  for (int i = 0; i < 13; i++) {
+  for (int i = 0; i < 14; i++) {
     printf("|%c\t  |%d\t |", chars[i], i);
-    printf("%c\t   |%d\t  |\n", chars[i+13], i+13);
+    printf("%c\t   |%d\t  |\n", chars[i+14], i+14);
   }
-  printf("|\t  |\t |");
-  printf("' '\t   |26\t  |\n");
+  //printf("|\t  |\t |");
+  //printf("' '\t   |26\t  |\n");
   printf("-----------------------------------\n\n");
 }
